@@ -25,7 +25,12 @@ directory in which modules are being installed.
 
 ## Installing
 
-If you have [PsGet](http://psget.net/) installed:
+Windows 10 users:
+
+    Install-Module PSCustomDrives -Scope CurrentUser
+
+Otherwise, if you have [PsGet](http://psget.net/) installed:
+
 
     Install-Module PSCustomDrives
   
