@@ -36,7 +36,7 @@ Otherwise, if you have [PsGet](http://psget.net/) installed:
   
 Or you can install it manually coping `PSCustomDrives.psm1` to your modules
 folder (e.g. `
-$Env:USERPROFILE\Eduardo_Sousa\Documents\WindowsPowerShell\Modules\PSCustomDrives\`)
+$Env:USERPROFILE\Documents\WindowsPowerShell\Modules\PSCustomDrives\`)
 
 After installed, you will need to explicit load this module to have PSDrives
 mapped:
