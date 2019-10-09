@@ -21,7 +21,26 @@ $mappings = & {
                     "New-PSDrive -PSProvider FileSystem -Scope Global -Name $prefix -Root '$path' | out-null";
                 }
 
-                "function Set-Location_$prefix { cd ${prefix}: }";
+                "function Set-Location_$prefix {";
+                '    if($args.Length -gt 0) {';
+                "        pushd ${prefix}:;";
+                '        try {';
+                '            if($args[0] -is [ScriptBlock]) {';
+                '                & $args[0];';
+                '            }';
+                '            else {';
+                '                Invoke-Expression ([string]::Join(" ", $args));';
+                '            }';
+                '        }';
+                '        finally {';
+                '            popd;';
+                '        }';
+                '    }';
+                '    else {';
+                "        cd ${prefix}:;";
+                '    }';
+                '}';
+
                 "Set-Alias '${prefix}:' 'Set-Location_$prefix'";
                 "Export-ModuleMember -function Set-Location_$prefix";
                 "Export-ModuleMember -alias ${prefix}:";

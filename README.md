@@ -23,6 +23,20 @@ It will map:
 PSCustomDrives will also always creating a mapping named `Modules` to the
 directory in which modules are being installed.
 
+### Quick command
+
+It's also possible to execute a quick command, use the mapped folder as working
+directory, without actually changing the current one. You just need to provide
+the command line as an argument.
+
+Example: `prof: Get-ChildItem`
+
+If you need more complexes command, that would require special char (such as
+`|`), you can use a ScriptBlock.
+
+Example: `prof: { Get-ChildItem | Out-File contents.txt }`
+
+
 ## Installing
 
 Windows 10 users:
